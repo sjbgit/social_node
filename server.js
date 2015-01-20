@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 //var Post = require('./models/post')
 
 var app = express()
+//app.use(require('connect-livereload')({port: 4002}));
 app.use(bodyParser.json());
 
 app.use('/api/posts', require('./controllers/api/posts'));

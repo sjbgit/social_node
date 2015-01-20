@@ -6,7 +6,7 @@ gulp.task('css', function () {
     gulp.src('css/**/*.styl')
         .pipe(stylus())
         .pipe(gulp.dest('assets'))
-        .pipe(livereload())
+        //.pipe(livereload())
 })
 
 gulp.task('watch:css', function () {
