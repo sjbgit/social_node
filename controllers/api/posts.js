@@ -11,10 +11,18 @@ router.get('/', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
+
+    console.log('auth: ' + req.auth);
+
+    var post = new Post({body: req.body.body})
+    post.username = req.auth.username;
+
+    /*
     var post = new Post({
         username: req.body.username,
         body: req.body.body
     })
+    */
     post.save(function (err, post) {
         if (err) { return next(err) }
         res.json(201, post)
