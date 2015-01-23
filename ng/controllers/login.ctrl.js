@@ -1,5 +1,7 @@
 angular.module('app')
     .controller('LoginCtrl', function ($scope, UserSvc) {
+        $scope.username = 'a';
+        $scope.password = 'b';
         $scope.login = function (username, password) {
             UserSvc.login(username, password)
                 .then(function (response) {

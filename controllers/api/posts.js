@@ -1,6 +1,9 @@
 var Post = require('../../models/post')
 var router = require('express').Router()
 
+var websockets = require('../../websockets')
+
+
 router.get('/', function (req, res, next) {
     Post.find()
         .sort('-date')
@@ -16,6 +19,9 @@ router.post('/', function (req, res, next) {
 
     var post = new Post({body: req.body.body})
     post.username = req.auth.username;
+
+
+    websockets.broadcast('message', post);
 
     /*
     var post = new Post({
