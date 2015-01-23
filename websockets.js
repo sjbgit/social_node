@@ -80,7 +80,7 @@ exports.connect = function(server) {
         async.map(
             sockets,
             function (socket, callback) {
-                socket.get('name', callback);
+                socket.get('name', callback); //TODO: SOCKET HAS NO GET METHOD?
             },
             function (err, names) {
                 broadcast('roster', names);
