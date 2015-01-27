@@ -6,6 +6,14 @@ var tinylr = require('tiny-lr')();
 
 gulp.task('live-reload', function () {
 
+
+    livereload.listen();
+
+    gulp.watch('**/*.html').on('change', function(file) {
+        server.changed(file.path);
+    });
+
+
     //tinylr.listen(4002);
 
     //var server = livereload();
