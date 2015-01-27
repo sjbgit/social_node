@@ -15,8 +15,13 @@ angular.module('app')
 
         socket.on('message', function (msg) {
             console.log('received message: ' + msg.username + ' ' + msg.body);
-            $scope.messages.push(msg); //this should be pushing on to posts or something
-            $scope.$apply();
+
+            $scope.$apply(function () {
+                $scope.posts.unshift(msg)
+            });
+
+            //$scope.messages.push(msg); //this should be pushing on to posts or something
+            //$scope.$apply();
         });
 
 
