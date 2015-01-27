@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('PostsCtrl', function ($scope, PostsSvc) {
+    .controller('PostsCtrl', function ($scope, PostsSvc, $timeout) {
 
         $scope.messages = [];
 
@@ -12,11 +12,23 @@ angular.module('app')
             //$scope.setName();
         });
 
+        socket.disconnect(function() {
+            //socket.connect();
+            $timeout(function() {
+                console.log('WebSocket closed. Reconnecting...');
+                socket.connect();
+            }, 10*1000);
+        });
+
 
         socket.on('message', function (msg) {
             console.log('received message: ' + msg.username + ' ' + msg.body);
-            $scope.messages.push(msg); //this should be pushing on to posts or something
-            $scope.$apply();
+            $scope.$apply(function () {
+                $scope.posts.unshift(msg);
+            })
+
+            //$scope.messages.push(msg); //this should be pushing on to posts or something
+            //$scope.$apply();
         });
 
 
