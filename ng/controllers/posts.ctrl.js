@@ -31,7 +31,7 @@ angular.module('app')
                     username: 'new',
                     body: $scope.postBody
                 }).success(function (post) {
-                    $scope.posts.unshift(post)
+                    //$scope.posts.unshift(post)
                     $scope.postBody = null
                 })
             }
