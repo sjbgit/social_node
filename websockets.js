@@ -42,7 +42,7 @@ exports.connect = function(server) {
 
         sockets.push(socket);
 
-        broadcast('message', 'my test info');
+        //broadcast('message', 'my test info');
 
         socket.on('disconnect', function () {
             sockets.splice(sockets.indexOf(socket), 1);
