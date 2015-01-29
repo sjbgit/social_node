@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "connect-livereload": "^0.5.2",
+    "mocha": "^2.1.0",
+    "protractor": "^1.6.1",
     "tiny-lr": "^0.1.4"
   }
 }

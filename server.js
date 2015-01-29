@@ -13,7 +13,9 @@ app.use('/api/users', require('./controllers/api/users'));
 
 app.use(require('./controllers/static'));
 
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+
+var server = app.listen(port, function () {
   console.log('Server listening on', 3000)
 })
 
